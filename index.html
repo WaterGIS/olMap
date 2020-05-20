@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<head>
+    <title></title>
+    <link rel="stylesheet" href="./ol.css" type="text/css">
+    <script src="./lib/jquery/jquery-1.8.2.js"></script>
+    <script src="./lib/ol/ol.js"></script>
+	<script src="./js/jquery-soMap.js"></script>
+</head>
+
+<body>
+    <div id="map" class="map" style="height:100%;width:100%;position: relative;">
+    </div>	
+
+    <script>
+ 
+    var newParams={
+		url:'http://www.google.cn/maps/vt?lyrs=s&x={x}&y={y}&z={z}',
+		zoomShowOrHide:false
+	};
+	$.fn.as =function(){
+			alert(11111);
+	}
+    var a2 = function(){
+		alert(2);
+	}
+
+	//var somap = new $.SoMap({ title: "Hi" });
+	//var somap2 = new $.SoMap('a');
+	//somap.testFun();
+	//somap2.testFun({ title: "Hi2" });
+	//somap.beautify()	
+	//var somap2 = new $.SoMap({id:'map2'});
+	$.SoMap.prototype = {
+		clickEvent:function(fn){
+			this.map.on("singleclick",$.fn.as)
+		}
+
+	}
+	var somap1 = new $.SoMap();
+
+
+	somap1.clickEvent(a2);
+
+	//somap2.clickEvent(a2);
+
+    </script>
+</body>
+
+</html>
